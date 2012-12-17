@@ -1,5 +1,5 @@
 <%= content_for :sidebar do %>
-  <li class="nav-header">In notebook: <%= link_to @notebook.title, @notebook %></li>
+  <li class="nav-header">In notebook: <%= link_to @notebook.title, notebook_pages_path(@notebook) %></
 <% end %>
 
 <%= content_for :top_nav do %>
