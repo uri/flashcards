@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class PagesController < ApplicationController
   before_filter :load_notebook
 
@@ -6,8 +8,13 @@ class PagesController < ApplicationController
   end
 
   def flashcards
-    @pages = @notebook.pages
-    @pages = @pages.order("random()") if params[:shuffle]
+    if params[:shuffle]
+      params[:seed] = Random.new_seed
+      params.delete :shuffle
+    end
+
+    Kernel.srand params[:seed].to_i
+    @pages = @notebook.pages.shuffle
     @pages = @pages.paginate(:page => params[:page], :per_page => 1)
   end
 
@@ -44,4 +51,5 @@ class PagesController < ApplicationController
   def load_notebook
     @notebook = Notebook.find params[:notebook_id]
   end
+
 end
