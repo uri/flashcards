@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def index
     @pages = @notebook.pages
+    @pages = Page.tagged_with params[:tag] if params[:tag]
   end
 
   def flashcards
@@ -15,6 +16,7 @@ class PagesController < ApplicationController
 
     Kernel.srand params[:seed].to_i
     @pages = @notebook.pages.shuffle
+    @pages = Page.tagged_with(params[:tag]).shuffle if params[:tag]
     @pages = @pages.paginate(:page => params[:page], :per_page => 1)
   end
 

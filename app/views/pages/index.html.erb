@@ -1,5 +1,8 @@
 <%= content_for :sidebar do %>
   <li class="nav-header">In notebook: <%= link_to @notebook.title, notebook_pages_path(@notebook) %></li>
+  <% ActsAsTaggableOn::Tag.all.each do |tag| %>
+    <li><%= link_to tag.name, notebook_pages_path(@notebook, :tag => tag.name) %></li>
+  <% end %>
 <% end %>
 
 <%= content_for :top_nav do %>

@@ -1,12 +1,17 @@
 <%= content_for :sidebar do %>
-  <li class="nav-header">In notebook: <%= link_to @notebook.title, notebook_pages_path(@notebook) %></
+  <li><strong><%= link_to "All", flashcards_notebook_pages_path(@notebook, :shuffle => 1) %></strong></li>
+  <% ActsAsTaggableOn::Tag.all.each do |tag| %>
+    <li><%= link_to tag.name, flashcards_notebook_pages_path(@notebook, :tag => tag.name) %></li>
+  <% end %>
 <% end %>
 
 <%= content_for :top_nav do %>
+
+  <li><%= link_to @notebook.title, notebook_pages_path(@notebook) %></li>
   <li><%= link_to "New flashcard", new_notebook_page_path(@notebook) %></li>
 <% end %>
 
-<p><%= link_to "Shuffle", flashcards_notebook_pages_path(@notebook, :shuffle => 1) %></p>
+
 
 <% @pages.each do |page| %>
   <h3><%= page.title %></h3>
