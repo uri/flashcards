@@ -1,0 +1,13 @@
+
+<h3><%= page.title %></h3>
+
+<div class="page-controls">
+  <small>
+    <%= link_to "d", notebook_page_path(@notebook, page), :method => :delete, :confirm => "Are you sure?" %>
+    -
+    <%= link_to 'e', edit_notebook_page_path(@notebook, page) %>
+  </small></div>
+
+<div class="page-content">
+  <%= page.rendered_content %>
+</div>

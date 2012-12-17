@@ -1,0 +1,18 @@
+<%= content_for :sidebar do %>
+  <li class="nav-header">In notebook: <%= link_to @notebook.title, @notebook %></li>
+<% end %>
+
+<%= content_for :top_nav do %>
+  <li><%= link_to "Flashcards", flashcards_notebook_pages_path(@notebook) %></li>
+  <li><%= link_to "Flashcards Shuffle", flashcards_notebook_pages_path(@notebook, :shuffle => true) %></li>
+<% end %>
+
+<h1>Pages for <%= @notebook.title %></h1>
+
+
+<h2><%= link_to "New page", new_notebook_page_path(@notebook), :class => "btn btn-success" %></h2>
+
+
+<% @pages.each do |page| %>
+  <%= render page %>
+<% end %>
