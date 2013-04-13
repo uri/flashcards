@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   before_filter :load_notebook
 
   def index
-    @pages = @notebook.pages
+    @pages = @notebook.pages.order("created_at desc")
     @pages = Page.tagged_with params[:tag] if params[:tag]
   end
 
