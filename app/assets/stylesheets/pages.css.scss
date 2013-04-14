@@ -5,12 +5,7 @@
 $input-width: 80%;
 
 textarea.content {
-  // font-family: helvetica, sans-serif;
-  // font-size: 20px;
-  // line-height: 1.6em;
   width: $input-width;
-  height:200px;
-  // background-color:#f5f5f5;
   font-size:1rem;
   font-family: monospace;
   line-height:1.4;
@@ -21,6 +16,12 @@ textarea.content {
 
 input {
   width: $input-width;
+  font-size:1rem;
+  font-family: monospace;
+  line-height:1.4;
+  max-width:60rem;
+  margin:0 auto;
+  padding:1rem;
 }
 
 
