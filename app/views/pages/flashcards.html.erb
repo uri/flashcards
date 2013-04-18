@@ -1,6 +1,6 @@
 <%= content_for :sidebar do %>
   <li><strong><%= link_to "All", flashcards_notebook_pages_path(@notebook, :shuffle => 1) %></strong></li>
-  <% ActsAsTaggableOn::Tag.all.each do |tag| %>
+  <% @notebook.tags.sort{|a,b| a.name <=> b.name}.each do |tag| %>
     <li><%= link_to tag.name, flashcards_notebook_pages_path(@notebook, :tag => tag.name) %></li>
   <% end %>
 <% end %>

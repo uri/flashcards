@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def flashcards
+    params[:shuffle] = "true"
     if params[:shuffle]
       params[:seed] = Random.new_seed
       params.delete :shuffle

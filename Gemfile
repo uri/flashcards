@@ -25,5 +25,6 @@ end
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'acts-as-taggable-on', '~> 2.3.1'
-gem 'rdiscount'
+# gem 'rdiscount'
+gem 'redcarpet'
 gem 'will_paginate', '~> 3.0'
