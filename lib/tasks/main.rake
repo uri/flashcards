@@ -1,7 +1,11 @@
 
 desc 'Sync databases'
 task :sync do
-  puts 'test'
+  system "~/.rbenv/versions/1.9.2-p320/bin/ruby /usr/bin/heroku db:push --confirm flashcards-uri"
 end
 
-# ~/.rbenv/versions/1.9.2-p320/bin/ruby /usr/bin/heroku db:push --confirm flashcards-uri
+task :test do
+  puts `~/.rbenv/versions/1.9.2-p320/bin/ruby -v`
+  puts system('~/.rbenv/versions/1.9.2-p320/bin/ruby -v')  
+  puts exec('~/.rbenv/versions/1.9.2-p320/bin/ruby -v')  
+end
